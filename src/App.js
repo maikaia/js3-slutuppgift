@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {createContext, useState} from "react"
+import {Routes, Route, Link} from "react-router-dom"
+import DetailPage from "./pages/DetailPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import MyPage from "./pages/MyPage";
+import StartPage from "./pages/StartPage";
 
 function App() {
+  const [email, setEmail] = useState("asd")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="my-page" element={<MyPage />} />
+          <Route path="/:id" element={<DetailPage />} />
+        </Routes>
+      
     </div>
   );
 }
